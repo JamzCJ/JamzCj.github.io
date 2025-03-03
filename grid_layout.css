@@ -1,0 +1,66 @@
+/* add your css styles here */
+* { 
+    border: 1px solid rgb(22, 21, 21); 
+    background: rgba(137, 135, 135, 0.1); 
+}
+
+/* Equal columns */ 
+body { 
+    min-height: 100vh;
+display: grid; 
+    grid-template-columns: 200px 1fr; 
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "navbar navbar"   /* Navbar spans full width */ 
+        "sidebar main"    /* Sidebar left, main content right */ 
+        "sidebar main"    /* Repeated for height */ 
+        "footer footer"   /* Footer spans full width */ 
+} 
+
+.nav { 
+    top: 0; 
+    position: sticky; 
+    grid-area: navbar;
+    background-color: darkgray; 
+    color: white; 
+    padding: 2em; 
+} 
+ 
+.sidebar { 
+    top: 0; 
+    position: sticky; 
+    height: calc(100vh - 136px);
+    top: 84px; 
+    position: sticky; 
+    align-self: start;
+    grid-area: sidebar; 
+} 
+ 
+.main { 
+    grid-area: main; 
+} 
+ 
+.footer { 
+    bottom: 0;
+    position: sticky;
+    grid-area: footer; 
+    background-color: darkgray; 
+    color: white; 
+    padding: 1em;
+}
+
+@media (max-width: 768px) { 
+    /* Change from two columns (200px 1fr) to single column */ 
+    body { 
+        grid-template-columns: 1fr;    /* Single column taking full width */ 
+    } 
+    .nav { 
+        display: none; 
+    } 
+    .sidebar { 
+        display: none; 
+    } 
+    .footer { 
+        display: none; 
+    } 
+}
